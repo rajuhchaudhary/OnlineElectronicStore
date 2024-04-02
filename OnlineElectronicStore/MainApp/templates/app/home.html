@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>base page</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body >
+
+    <meta charset="UTF-8">
+
+    <title>{% block title %} Home {% endblock%}</title>
+    <header class="header">
+
+        <div class="logo">
+             <a href="{% url 'home' %}">
+        <img height="100px"  width="100px" src="{% static 'image/oes.png' %}" alt="online electronic store">
+    </a>
+        </div>
+
+       <div class="search">
+            <form action="/search">
+            <input type="text" name="search" class="searchTerm" placeholder="What are you looking for? ">
+                <a href="{% url 'search' %}"> <button type="submit"  value="search" class="searchButton">Search</button></a>
+
+            </form>
+        </div>
+
+        <div class="login">
+            {% if not request.user.is_authenticated %}
+    <a href="{% url 'login' %}">
+        <img src="{% static 'image/sign-in.png' %}" alt="User Icon" class="user-icon">
+    </a>
+{% endif %}
+
+            {% if not request.user.is_authenticated %}
+    <a href="{% url 'register' %}">
+        <img  src="{% static 'image/sign-up.png' %}" alt="User Icon" class="user-icon">
+    </a>
+{% endif %}
+
+
+
+            {% if request.user.is_authenticated %}
+            <a href="{% url 'logout' %}">
+                   <img src="{% static 'image/logout.png' %}" alt="User Icon" class="user-icon">
+               </a>
+            {% endif %}
+
+            {% if request.user.is_authenticated %}
+             <a href="{% url 'show-cart' %}">
+                   <img src="{% static 'image/trolley.png' %}" alt="User Icon" class="user-icon">
+               </a>
+            {% endif %}
+
+            {% if request.user.is_authenticated %}
+            <a href="{% url 'my-order' %}">
+                   <img src="{% static 'image/order.png' %}" alt="User Icon" class="user-icon">
+               </a>
+            {% endif %}
+
+        </div>
+
+    </header>
+    <div id="navbar">
+        <div id="navbar-link">
+
+            <a  href="{% url 'home' %}">Home</a>
+            <a href="{% url 'index' %}">Category</a>
+            <a href="{% url 'contact' %}">Contact</a>
+            <a href="{% url 'About-us' %}">About</a>
+
+
+        </div>
+    </div>
+    <style>
+        .product-container{
+            background-image: url('{% static 'image/plains.jpg' %}');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+<h1 class="title">Mobile</h1>
+    <div class="product-container">
+        {% if Mobile %}
+
+        {% for product in Mobile%}
+        <div class="product-item">
+            <div class="img">
+                <a href="{% url 'product-details' product.id  %}">
+                <img src="{{product.product_image.url}}" alt="{{product.title}}">
+                </a>
+            </div>
+            <h3>{{product.title}}</h3>
+            <p>Brand:{{product.brand}}</p>
+            <p>Selling Price:{{product.selling_price}}</p>
+            <p>Discount Price:{{product.discount_price}}</p>
+        </div>
+         {% endfor %}
+            {% endif %}
+
+    </div>
+<h1 class="title">Tv</h1>
+    <div class="product-container">
+        {% if Tv %}
+
+        {% for product in Tv %}
+        <div class="product-item">
+            <div class="img">
+                <a href="{% url 'product-details' product.id  %}">
+                <img src="{{product.product_image.url}}" alt="{{product.title}}">
+                </a>
+            </div>
+            <h3>{{product.title}}</h3>
+            <p>Brand:{{product.brand}}</p>
+            <p>Selling Price:{{product.selling_price}}</p>
+            <p>Discount Price:{{product.discount_price}}</p>
+        </div>
+         {% endfor %}
+            {% endif %}
+
+    </div>
+<h1 class="title">Smart Watch</h1>
+    <div class="product-container">
+        {% if Smart_Watch %}
+
+        {% for product in Smart_Watch %}
+        <div class="product-item">
+            <div class="img">
+                <a href="{% url 'product-details' product.id  %}">
+                <img src="{{product.product_image.url}}" alt="{{product.title}}">
+                </a>
+            </div>
+            <h3>{{product.title}}</h3>
+            <p>Brand:{{product.brand}}</p>
+            <p>Selling Price:{{product.selling_price}}</p>
+            <p>Discount Price:{{product.discount_price}}</p>
+        </div>
+         {% endfor %}
+            {% endif %}
+
+    </div>
+
+
+     <div class="product-container">
+        {% if Laptop %}
+
+        {% for product in Laptop %}
+        <div class="product-item">
+            <div class="img">
+                <a href="{% url 'product-details' product.id  %}">
+                <img src="{{product.product_image.url}}" alt="{{product.title}}">
+                </a>
+            </div>
+            <h3>{{product.title}}</h3>
+            <p>Brand:{{product.brand}}</p>
+            <p>Selling Price:{{product.selling_price}}</p>
+            <p>Discount Price:{{product.discount_price}}</p>
+        </div>
+         {% endfor %}
+            {% endif %}
+
+    </div>
+
+    <h1 class="title">Camera</h1>
+     <div class="product-container">
+        {% if Camera %}
+
+        {% for product in Camera %}
+        <div class="product-item">
+            <div class="img">
+                <a href="{% url 'product-details' product.id  %}">
+                <img src="{{product.product_image.url}}" alt="{{product.title}}">
+                </a>
+            </div>
+            <h3>{{product.title}}</h3>
+            <p>Brand:{{product.brand}}</p>
+            <p>Selling Price:{{product.selling_price}}</p>
+            <p>Discount Price:{{product.discount_price}}</p>
+        </div>
+         {% endfor %}
+            {% endif %}
+
+    </div>
+
+     <div class="product-container">
+        {% if Tablet %}
+<h1 class="title">Tablet</h1>
+        {% for product in Tablet %}
+        <div class="product-item">
+            <div class="img">
+                <a href="{% url 'product-details' product.id  %}">
+                <img src="{{product.product_image.url}}" alt="{{product.title}}">
+                </a>
+            </div>
+            <h3>{{product.title}}</h3>
+            <p>Brand:{{product.brand}}</p>
+            <p>Selling Price:{{product.selling_price}}</p>
+            <p>Discount Price:{{product.discount_price}}</p>
+        </div>
+         {% endfor %}
+            {% endif %}
+
+    </div>
+    <h1 class="title">Speaker</h1>
+    <div class="product-container">
+        {% if Speaker %}
+
+        {% for product in Speaker %}
+        <div class="product-item">
+            <div class="img">
+                <a href="{% url 'product-details' product.id  %}">
+                <img src="{{product.product_image.url}}" alt="{{product.title}}">
+                </a>
+            </div>
+            <h3>{{product.title}}</h3>
+            <p>Brand:{{product.brand}}</p>
+            <p>Selling Price:{{product.selling_price}}</p>
+            <p>Discount Price:{{product.discount_price}}</p>
+        </div>
+         {% endfor %}
+            {% endif %}
+
+    </div>
+
+
+
+    <footer>
+        <div class="footer-container">
+           <div  class="footer-section">
+               <h3>
+                   contact us
+               </h3>
+               <a href="#">Email:rajuchaudhay@gmail.com</a>
+               <p><a href="#">phone:9510628715</a></p>
+
+           </div>
+           <div class="footer-section">
+               <h3>Follow us</h3>
+               <p><a href="#">Facebook</a></p>
+               <p><a href="#">Twiter</a></p>
+               <p><a href="#">Instagram</a></p>
+           </div>
+           <div class="footer-section">
+               <h3>Quick Link</h3>
+
+            <p><a  href="{% url 'home' %}">Home</a></p>
+           <p> <a href="{% url 'index' %}">Category</a></p>
+           <p> <a href="{% url 'contact' %}">Contact</a></p>
+            <p><a href="{% url 'About-us' %}">About</a></p>
+           </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Register{% endblock%}</title>
+</head>
+<body class="feedback-form-body">
+<h1 style="text-align:center; font-size:40px;" class="new-feedback-heading">Feedback</h1>
+<div class="new-main-container">
+    <form method="post" novalidate class="new-feedback-form">
+        {% csrf_token %}
+        {% if form %}
+            {% for field in form %}
+                {{ field }}
+            {% endfor %}
+        {% endif %}
+        <div>
+            <input type="submit" value="Submit" class="new-submit-feedback-button">
+        </div>
+    </form>
+
+    <a href="{% url 'my-feedback' %}" class="new-my-feedback-link">
+        <input type="submit" name="Buy" value="My Feedback" class="new-view-feedback-button">
+    </a>
+</div>
+</body>
+</html>

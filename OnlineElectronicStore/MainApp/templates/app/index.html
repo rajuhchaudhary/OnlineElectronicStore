@@ -1,0 +1,157 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %} Index {% endblock %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% block body %}
+<style>
+        .product-container{
+            background-image: url('{% static 'image/plains.jpg' %}');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+<h1 class="title">Mobile</h1>
+    <div class="product-container">
+        {% if Mobile %}
+
+        {% for product in Mobile%}
+        <div class="product-item">
+            <div class="img">
+                <a href="{% url 'product-details' product.id  %}">
+                <img src="{{product.product_image.url}}" alt="{{product.title}}">
+                </a>
+            </div>
+            <h3>{{product.title}}</h3>
+            <p>Brand:{{product.brand}}</p>
+            <p>Selling Price:{{product.selling_price}}</p>
+            <p>Discount Price:{{product.discount_price}}</p>
+        </div>
+         {% endfor %}
+            {% endif %}
+
+    </div>
+<h1 class="title">Tv</h1>
+    <div class="product-container">
+        {% if Tv %}
+
+        {% for product in Tv %}
+        <div class="product-item">
+            <div class="img">
+                <a href="{% url 'product-details' product.id  %}">
+                <img src="{{product.product_image.url}}" alt="{{product.title}}">
+                </a>
+            </div>
+            <h3>{{product.title}}</h3>
+            <p>Brand:{{product.brand}}</p>
+            <p>Selling Price:{{product.selling_price}}</p>
+            <p>Discount Price:{{product.discount_price}}</p>
+        </div>
+         {% endfor %}
+            {% endif %}
+
+    </div>
+<h1 class="title">Smart Watch</h1>
+    <div class="product-container">
+        {% if Smart_Watch %}
+
+        {% for product in Smart_Watch %}
+        <div class="product-item">
+            <div class="img">
+                <a href="{% url 'product-details' product.id  %}">
+                <img src="{{product.product_image.url}}" alt="{{product.title}}">
+                </a>
+            </div>
+            <h3>{{product.title}}</h3>
+            <p>Brand:{{product.brand}}</p>
+            <p>Selling Price:{{product.selling_price}}</p>
+            <p>Discount Price:{{product.discount_price}}</p>
+        </div>
+         {% endfor %}
+            {% endif %}
+
+    </div>
+
+    <h1 class="title">Laptop</h1>
+     <div class="product-container">
+        {% if Laptop %}
+
+        {% for product in Laptop %}
+        <div class="product-item">
+            <div class="img">
+                <a href="{% url 'product-details' product.id  %}">
+                <img src="{{product.product_image.url}}" alt="{{product.title}}">
+                </a>
+            </div>
+            <h3>{{product.title}}</h3>
+            <p>Brand:{{product.brand}}</p>
+            <p>Selling Price:{{product.selling_price}}</p>
+            <p>Discount Price:{{product.discount_price}}</p>
+        </div>
+         {% endfor %}
+            {% endif %}
+
+    </div>
+
+    <h1 class="title">Camera</h1>
+     <div class="product-container">
+        {% if Camera %}
+
+        {% for product in Camera %}
+        <div class="product-item">
+            <div class="img">
+                <a href="{% url 'product-details' product.id  %}">
+                <img src="{{product.product_image.url}}" alt="{{product.title}}">
+                </a>
+            </div>
+            <h3>{{product.title}}</h3>
+            <p>Brand:{{product.brand}}</p>
+            <p>Selling Price:{{product.selling_price}}</p>
+            <p>Discount Price:{{product.discount_price}}</p>
+        </div>
+         {% endfor %}
+            {% endif %}
+
+    </div>
+
+     <div class="product-container">
+         <h1 class="title">Tablet</h1>
+        {% if Tablet %}
+
+        {% for product in Tablet %}
+        <div class="product-item">
+            <div class="img">
+                <a href="{% url 'product-details' product.id  %}">
+                <img src="{{product.product_image.url}}" alt="{{product.title}}">
+                </a>
+            </div>
+            <h3>{{product.title}}</h3>
+            <p>Brand:{{product.brand}}</p>
+            <p>Selling Price:{{product.selling_price}}</p>
+            <p>Discount Price:{{product.discount_price}}</p>
+        </div>
+         {% endfor %}
+            {% endif %}
+
+    </div>
+    <h1 class="title">Speaker</h1>
+    <div class="product-container">
+        {% if Speaker %}
+
+        {% for product in Speaker %}
+        <div class="product-item">
+            <div class="img">
+                <a href="{% url 'product-details' product.id  %}">
+                <img src="{{product.product_image.url}}" alt="{{product.title}}">
+                </a>
+            </div>
+            <h3>{{product.title}}</h3>
+            <p>Brand:{{product.brand}}</p>
+            <p>Selling Price:{{product.selling_price}}</p>
+            <p>Discount Price:{{product.discount_price}}</p>
+        </div>
+         {% endfor %}
+            {% endif %}
+
+    </div>
+
+{% endblock body %}

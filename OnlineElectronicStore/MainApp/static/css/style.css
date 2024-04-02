@@ -1,0 +1,481 @@
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+.header {
+    width: 100%;
+    height:80px;
+    display: flex;
+    box-sizing: border-box;
+    background-color:black;
+    border: 2px solid black;
+}
+
+.logo {
+    width: 30%;
+    margin-top: 8px;
+    font-size: 25px;
+    text-align: center;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #ed1c24;
+}
+
+.user-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    display: inline-block;
+    margin-bottom:5px;
+    margin-left:30px;
+}
+.search {
+    width: 30%;
+    margin-top:8px;
+    height: 40px;
+    display: inline-block;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+
+.searchTerm {
+    text-align: center;
+    width: 320px;
+    height:50px;
+    border: 3px solid Magenta;
+    padding: 5px;
+    border-radius: 5px 0 0 5px;
+    font-size: 20px;
+    color: #ed1c24;
+}
+
+.searchButton {
+    text-align: center;
+    width: 100px;
+    height: 50px;
+    background: darkblue;
+    color: white;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+    border: 3px solid Magenta;
+}
+
+
+.searchButton:hover {
+    background-color: #ed1c24;
+}
+
+.login {
+    box-sizing: border-box;
+    margin-top: 8px;
+    margin-left: 150px;
+}
+
+.login-bt {
+    color: white;
+    font-size: 25px;
+    text-decoration: none;
+    padding: 15px;
+}
+
+.login-bt:hover {
+    color: #ed1c24;
+}
+
+#navbar {
+    border: 1px solid black;
+    height: 80px;
+    width: 100%;
+    background-color: #0a0a0a;
+}
+
+#navbar-link {
+    margin-top: 19px;
+    font-size: 22px;
+    text-align: center;
+}
+
+#navbar-link a {
+    text-decoration: none;
+    padding: 20px;
+    color: white;
+    transition: color 0.9s ease;
+}
+
+#navbar-link a:hover {
+    color: #ed1c24;
+    text-decoration: underline;
+}
+
+.container {
+    width: 100%;
+    height: auto;
+}
+
+.title {
+    text-align: center;
+    color: #ed1c24;
+    font-size: 25px;
+    background-color: LightSeaGreen;
+    padding: 18px;
+    margin-left: 500px;
+    margin-right: 500px;
+    border-radius: 20px;
+}
+
+.product-container {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-decoration: none;
+
+}
+
+.product-item {
+    border: none;
+    margin: 10px;
+    padding: 30px;
+    width: 240px;
+    height: 370px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 10px 10px 5px #888888;
+    border-radius: 15px;
+    background-color: white;
+}
+
+.product-item img {
+    max-width: 100%;
+    height: 200px;
+    transform: transform 0.1 else-in-out;
+}
+
+.product-item img:hover {
+    transform: scale(1.1);
+}
+
+.product-item h3 {
+    margin: 10px;
+    font-size: 25px;
+    color: darkblue;
+}
+
+.product-item h3:hover {
+    color: #ed1c24;
+}
+
+.product-item p {
+    text-align: left;
+    margin: 10px;
+    font-size: 18px;
+    color: #0a0a0a;
+    box-sizing: border-box;
+}
+
+footer {
+    background-color: black;
+    padding: 20px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-container h3 {
+    color: #ed1c24;
+}
+
+.footer-section {
+    max-width: 300px;
+    color: white;
+}
+
+.footer-section a {
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.footer-section p {
+    margin: 5px 0;
+}
+
+.footer-section a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+    color: #ed1c24;
+}
+
+
+                  /* Mobile styles */
+
+.category-filter{
+    width: 100%;
+    display: flex;
+
+}
+.category-company{
+
+     width: 10%;
+     box-shadow: 10px 10px 10px 10px(0,0,0,0.3);
+
+}
+.category-company h3{
+    font-size: 30px;
+    padding-left: 8px;
+    color: #ed1c24;
+
+}
+.category-company li{
+    font-size: 20px;
+    padding-top: 10px;
+    color: #0a0a0a;
+}
+.category-company li a{
+    color: #0a0a0a;
+    text-decoration: none;
+}
+.category-company li a:hover{
+    color: #ed1c24;
+    text-decoration: underline;
+}
+.category-side{
+
+    width: 90%;
+    border:2px solid pink;
+
+}
+.category-side h1{
+    color: #ed1c24;
+}
+
+/*   login form */
+
+.user-login{
+          display: flex;
+          align-items: center;
+           justify-content: center;
+           height: 700px;
+        }
+
+h1{
+        color:#ed1c24;
+        font-size:50px;
+        font-width:600;
+        }
+
+.user-login-form{
+        background-color: #ffffff;
+        border-radius: 15px;
+        box-shadow:10px 10px 10px 10px #888888;
+        padding: 20px;
+        width: 300px;
+        text-align: center;
+        background-color:#f2884a;
+        background-image: url('/static/image/login-bg.jpg'); no-repeat center/ cover;
+	    border-radius: 15px;
+     	box-shadow: 5px 5px 5px 5px green;
+
+ }
+
+ .user-form-div{
+        margin-bottom: 15px;
+        font-size: 20px;
+        text-align: left;
+        display: block;
+        }
+
+input{
+        width:100%;
+        font-size:18px;
+        padding:8px;
+        box-sizing:border-box;
+        border-radius:30px;
+        Margin-Top:5px
+        }
+
+.login-submit{
+        padding:15px 20px;
+        font-size:20px;
+        font-width:600;
+        background-color:black;
+        color:#fff;
+        border-radius:30px;
+        cursor:pointer;
+        transition:background-color 0.3s;
+        }
+
+.login-submit:hover{
+        background-color:#ed1c24;
+        color:black;
+        }
+
+.all-user-login{
+        display:flex;
+        }
+
+.all-user-login h6{
+        font-size:15px;
+        padding-left:10px;
+        color:darkblack;
+        }
+.all-user-login a{
+        padding-top:30px;
+        font-size:25px;
+        font-width:600;
+        text-decoration: none;
+        padding-left:5px;
+        color:green;
+        }
+
+.message {
+    background-color: #ed1c24;
+    color: green;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+
+
+ /* profile */
+
+        body .profile-body{
+       font-family: Arial, Helvetica, sans-serif;
+       background-color: #f4f4f4;
+       width: 300px;
+      display: flex;
+
+      height: 100vh;
+      background-image: linear-gradient(to right, #ff99cc, #66cc99);
+}
+
+.Address-Form{
+    width: 300px;
+
+    margin: 20px;
+    padding:20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow:2px 5px 5px 5px #888888;
+}
+ Form p{
+
+    margin-bottom: 20PX;
+
+ }
+
+ label{
+     display: block;
+     font-weight: bold;
+     margin-bottom: 5px;
+     margin-top: 5px;
+ }
+ input{
+     width: 100%;
+     padding: 8px;
+     box-sizing: border-box;
+     margin-top: 5px;
+     border-radius: 30px;
+ }
+ select{
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-top: 5px;
+    border-radius: 30px;
+ }
+ .submit{
+     background-color: green;
+     color: #ffffff;
+     font-size:20px;
+     width:190px;
+     margin-left:95px;
+     margin-top:13px;
+     font-width:600;
+     padding: 10px 15px;
+     border-radius: 30px;
+     cursor: pointer;
+     transition:background-color 0.5s;
+ }
+ .submit:hover{
+    background-color: #ed1c24;
+    border-radius: 30px;
+     color:black;
+ }
+
+
+  .back{
+     background-color: Gold;
+     color: #gfffff;
+     font-size:18px;
+     width:170px;
+     margin-left:100px;
+     margin-top:13px;
+     font-width:600;
+     padding: 10px 15px;
+     border-radius: 30px;
+     cursor: pointer;
+     transition:background-color 0.5s;
+ }
+ .back:hover{
+    background-color: #ed1c24;
+    border-radius: 25px;
+     color:black;
+ }
+
+   .remove{
+     background-color: RED;
+     color: #gfgfff;
+     font-size:17px;
+     width:150px;
+     margin-left:100px;
+     margin-top:13px;
+     font-width:600;
+     padding: 10px 15px;
+     border-radius: 30px;
+     cursor: pointer;
+     transition:background-color 0.5s;
+ }
+ .remove:hover{
+    background-color: #ed1c24;
+    border-radius: 25px;
+     color:black;
+ }
+
+.change{
+     background-color: orange;
+     color: #gfffff;
+     font-size:17px;
+     width:160px;
+     margin-left:100px;
+     margin-top:13px;
+     font-width:500;
+     padding: 10px 15px;
+     border-radius: 30px;
+     cursor: pointer;
+     transition:background-color 0.5s;
+ }
+ .change:hover{
+    background-color: #ed1c24;
+    border-radius: 25px;
+     color:black;
+ }
+
+  .message{
+  font-size:30px;
+  color:green;
+  padding-top:15px;
+
+  }

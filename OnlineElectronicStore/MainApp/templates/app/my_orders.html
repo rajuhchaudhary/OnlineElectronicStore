@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body class="order-body">
+{% if order %}
+{% for order_item in order %}
+
+  <div class="order-container">
+      <div class="order-item">
+          <div class="order-img">
+              <img src="{{ order_item.product.product_image.url }}" alt="Product Image">
+          </div>
+          <div class="order-detail">
+              <p>{{ order_item.product.title }}</p>
+              <p> Quantity: {{ order_item.quantity }}</p>
+              <p>₹{{ order_item.product.discount_price }}</p>
+              <p>Total ₹{{ order_item.total_price }}</p>
+              <p> {{ order_item.order_date }}</p>
+              <p> {{ order_item.status }}</p>
+              {% if order_item.status != 'Accepted' %}
+                <a href="{% url 'cancel-order' order_item.id %}"><input type="submit" name="Buy" value="Cancel" class="cancel-button"></a>
+              {% endif %}
+          </div>
+      </div>
+  </div>
+{% endfor %}
+
+{% else %}
+<h1>You Don't Have Any Order....</h1>
+{% endif %}
+<div class="help">
+    <a href="{% url 'feedback' %}"> <input type="submit" name="Buy" value="Help" class="help-button"></a>
+</div>
+</body>
+</html>

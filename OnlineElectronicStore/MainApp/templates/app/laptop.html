@@ -1,0 +1,61 @@
+
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %} LAPTOP {% endblock %}
+
+
+{% block body %}
+
+<div class="category-filter">
+    <div class="category-company" style="background-image: url('{% static 'image/plains.jpg' %}'); background-size: cover; background-position: center;">
+        <h3 align="left">Brand Filter</h3>
+        <ul>
+            <li> <a href="{% url 'laptop' 'A-Z' %}">A-Z</a></li>
+            <li> <a href="{% url 'laptop' 'Acer' %}"> Acer</a></li>
+            <li> <a href="{% url 'laptop' 'Dell' %}"> Dell</a></li>
+            <li> <a href="{% url 'laptop' 'Hp' %}"> HP</a></li>
+            <li> <a href="{% url 'laptop' 'Asus' %}"> Asus</a></li>
+            <li> <a href="{% url 'laptop' 'Lenovo' %}"> Lenovo</a></li>
+
+
+        </ul>
+        <h3 align="left">PRICE</h3>
+        <ul>
+            <li> <a href="{% url 'laptop' 'Low-High' %}">Low-High</a></li>
+            <li> <a href="{% url 'laptop' 'High-Low' %}">High-Low</a></li>
+            <li> <a href="{% url 'laptop' 'Above' %}"> Above 35000</a></li>
+            <li> <a href="{% url 'laptop' 'Below' %}"> Below 35000 </a></li>
+        </ul>
+    </div>
+    <div class="category-side" style="background-image: url('{% static 'image/login-bg.jpg' %}'); background-size: cover; background-position: center;">
+        {% if data %}
+        <h1 style="text-align: center; height: 25px; font-size: 35px;">LAPTOP</h1>
+        <div class="product-container" style="background-image: url('{% static 'image/plain.jpg' %}'); background-size: cover; background-position: center;">
+
+            {% for product in data %}
+
+            <div class="img">
+
+                  <div class="product-item">
+                      <div class="img">
+                           <a href="{% url 'product-details' product.id  %}">
+              <img src="{{ product.product_image.url }}" alt="{{ product.title }}">
+                               </a>
+                        </div>
+
+            <h3>{{product.title}}</h3>
+            <p class="r">Brand : {{ product.brand }}</p>
+            <p class="p3">Selling Price : {{ product.selling_price }}</p>
+            <p class="p4">Discount Price {{ product.discount_price }}</p>
+        </div>
+    </div>
+
+    {% endfor %}
+    {% endif %}
+
+    </div>
+</div>
+
+</div>
+{% endblock %}
+

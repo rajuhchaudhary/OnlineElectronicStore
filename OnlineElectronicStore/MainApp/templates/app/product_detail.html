@@ -1,0 +1,37 @@
+{% extends 'app/base.html' %}
+{% block title %} Product Details {% endblock %}
+
+{% block body %}
+<body class="product-details-body">
+{% if data %}
+<div class="product-details">
+    <div class="img-details">
+        <img src="{{ data.product_image.url }}" alt="{{ data.title }}">
+    </div>
+    <div class="img-description">
+        <h3 class="product-title">{{ data.title }}</h3>
+        <p class="brand-details">{{ data.brand }}</p>
+        <p class="description-details">{{ data.description | linebreaksbr }}</p>
+        <p class="price-details">₹{{ data.selling_price }}</p>
+        <p class="offer-details">₹{{ data.discount_price }}</p>
+        {% if request.user.is_authenticated %}
+            {% if not already %}
+                <form action="/add-to-cart">
+                    <input type="hidden" name="product_id" value="{{ data.id }}">
+                    <a href="{% url 'show-cart' %}"><input type="submit" name="Cart" value="Buy" class="addTocartBtn"></a>
+                </form>
+            {% endif %}
+            {% if not already %}
+                <form action="/add-to-cart">
+                    <input type="hidden" name="product_id" value="{{ data.id }}">
+                    <a href="{% url 'show-cart' %}"><input type="submit" name="Cart" value="Add Cart" class="addTocartBtn"></a>
+                </form>
+            {% else %}
+                <a href="{% url 'check-out' %}"><input type="submit" value="Check Out" class="addTocartBtn"></a>
+            {% endif %}
+        {% endif %}
+    </div>
+</div>
+{% endif %}
+</body>
+{% endblock %}

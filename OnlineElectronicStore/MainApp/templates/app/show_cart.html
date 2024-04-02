@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Cart</title>
+</head>
+<body>
+{% if is_empty %}
+    <div style="color:red; font-size:50px; text-align:center;">
+        Cart Is Empty
+    </div>
+{% else %}
+    <div class="product-container">
+        <form id="cart-form" method="post" action="{% url 'update_cart' %}">
+            {% csrf_token %}
+            {% for c in carts %}
+                <div class="product-item">
+                    <div class="cart-img">
+                        <img src="{{ c.product.product_image.url }}" alt="Product Image">
+                    </div>
+                    <div class="cart-detail">
+                        <p>{{ c.product.title }}</p>
+                        {% if c.product_in_cart %}
+                            <p class="cart-message">Already in the Cart</p>
+                        {% endif %}
+                        <a><p>{{ c.product.discount_price }}</p></a>
+                        <h1><p>{{ c.product.selling_price }}</p></h1>
+                        <p><input type="number" name="quantity_{{ c.id }}" class="quantity-input" value="{{ c.quantity }}"></p>
+                        <button type="submit" name="update" class="update">Update</button>
+                    </div>
+                </div>
+            {% endfor %}
+        </form>
+    </div>
+    <br>
+    <div class="total-section">
+        <p>Shipping Charge: {{ shipping }}</p>
+        <p>Total Price: {{ amount }}</p>
+        <p>Total Payable Amount: {{ pay }}</p>
+    </div>
+{% endif %}
+<div class="price">
+    {% if carts %}
+        <a href="{% url 'check-out' %}"><button name="Buy" class="check-button">Check Out</button></a>
+    {% endif %}
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var quantityInputs = document.querySelectorAll('.quantity-input');
+        quantityInputs.forEach(function(input) {
+            input.addEventListener('keydown', function(event) {
+                if (event.key === 'Enter') {
+                    var quantityValue = parseInt(this.value);
+                    if (quantityValue <= 0 || isNaN(quantityValue)) {
+                        event.preventDefault();
+                        return false;
+                    }
+                    document.getElementById('cart-form').submit();
+                }
+            });
+        });
+    });
+</script>
+</body>
+<style>
+    /* Add your CSS styles here */
+</style>
+</html>

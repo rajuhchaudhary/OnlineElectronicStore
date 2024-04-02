@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body class="feedback-body">
+{% if feed %}
+    {% for f in feed %}
+        <div class="feedback-entry">
+            <p> ID : {{ f.id }}</p>
+            {% if f.admin_reply %}
+                <p> Admin Response : <h4 class="admin-response">{{ f.admin_reply }}</h4></p>
+            {% else %}
+                <p>Admin Response : <span class="admin-response-pending">Pending</span></p>
+            {% endif %}
+            <p> Date : {{ f.created_at }}</p>
+            <p> Status : {{ f.status }}</p>
+        </div>
+    {% endfor %}
+{% endif %}
+</body>
+</html>

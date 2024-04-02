@@ -1,0 +1,63 @@
+
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %} Speaker {% endblock%}
+
+
+{% block body %}
+
+<div class="category-filter">
+    <div class="category-company" style="background-image: url('{% static 'image/plains.jpg' %}'); background-size: cover; background-position: center;">
+        <h3 align="left">TITLE</h3>
+        <ul>
+             <li> <a href="{% url 'speaker' 'A-Z' %}">A-Z</a></li>
+            <li> <a href="{% url 'speaker' 'Jbl' %}"> Jbl </a></li>
+            <li> <a href="{% url 'speaker' 'Sony' %}"> Sony</a></li>
+            <li> <a href="{% url 'speaker' 'Bose' %}"> Bose </a></li>
+            <li> <a href="{% url 'speaker' 'Harman' %}"> Harman </a></li>
+            <li> <a href="{% url 'speaker' 'Boat' %}"> Boat </a></li>
+
+
+        </ul>
+        <h3 align="left">PRICE</h3>
+        <ul>
+            <li> <a href="{% url 'speaker' 'Above' %}"> Above 10000</a></li>
+            <li> <a href="{% url 'speaker' 'Below' %}"> Below 10000 </a></li>
+            <li> <a href="{% url 'speaker' 'Low-High' %}">Low-High</a></li>
+            <li> <a href="{% url 'speaker' 'High-Low' %}">High-Low</a></li>
+        </ul>
+         
+    </div>
+    <div class="category-side" style="background-image: url('{% static 'image/login-bg.jpg' %}'); background-size: cover; background-position: center;">
+
+            {% if data %}
+             <h1 style="text-align: center; height: 25px; font-size: 35px;">Speaker</h1>
+         <div class="product-container" style="background-image: url('{% static 'image/plain.jpg' %}'); background-size: cover; background-position: center;">
+            {% for product in data %}
+
+            <div class="img">
+
+                  <div class="product-item">
+                      <div class="img">
+                           <a href="{% url 'product-details' product.id  %}">
+              <img src="{{ product.product_image.url }}" alt="{{ product.title }}">
+                               </a>
+                        </div>
+
+            <h3>{{product.title}}</h3>
+            <p class="r">Brand : {{ product.brand }}</p>
+            <p class="p3">Selling Price : {{ product.selling_price }}</p>
+            <p class="p4">Discount Price {{ product.discount_price }}</p>
+        </div>
+    </div>
+
+    {% endfor %}
+            {% else %}
+            <h1 align="center">Data not found</h1>
+    {% endif %}
+
+    </div>
+</div>
+
+</div>
+{% endblock %}

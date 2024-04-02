@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check out</title>
+</head>
+<body class="new-checkout">
+
+<div class="new-checkout-container">
+    {% if product %}
+
+        <h1 class="new-checkout-heading">Product Details</h1>
+        <div class="new-product-container">
+            {% for p in product %}
+                <div class="new-product-item">
+                    <div class="new-product-img">
+                        <img src="{{ p.product.product_image.url }}" alt="Product Image">
+                    </div>
+                    <div class="new-product-details">
+                        <p>{{ p.product.title }}</p>
+                        <p>Quantity: {{ p.quantity }}</p>
+                        <p>₹{{ p.product.discount_price }}</p>
+                        <p>Total: ₹{{ p.total_price }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="new-summary-container">
+            <h2>Summary</h2>
+            <p>Total Amount: {{ total_amount }}</p>
+            <p>Shipping Amount: {{ ship }}</p>
+            <p>Total Payable Amount: {{ pay }}</p>
+        </div>
+
+        {% if add %}
+
+            <form action="/payment" class="new-address-form">
+                <h2 class="new-address-heading">Address</h2>
+                <div class="new-address-list">
+
+                    {% for ad in add %}
+
+                    <div class="new-address-item">
+                        <p>User: {{ ad.user }}</p>
+                        <p>Name: {{ ad.name }}</p>
+                        <p>City: {{ ad.city }}</p>
+                        <p>State: {{ ad.state }}</p>
+                        <p>Zipcode: {{ ad.zipcode }}</p>
+
+                        <input type="radio" name="custid" id="custadd{{ forloop.counter }}" value="{{ ad.id }}" required>
+
+                        <label class="new-address-label" for="custadd{{ forloop.counter }}">
+                            {{ forloop.counter }}
+                        </label>
+                    </div>
+
+                    {% endfor %}
+                </div>
+                <div>
+                    <a href="{% url 'check-out' %}"><input type="submit" name="Buy" value="Buy" class="new-buy-button"></a>
+                </div>
+            </form>
+
+        {% else %}
+            <h2 class="new-address-heading">Enter Address</h2>
+            <a href="{% url 'profile' %}"><input type="submit" name="Buy" value="Add Address" class="new-address-button"></a>
+        {% endif %}
+
+    </div>
+    {% else %}
+        <p>Cart is Empty</p>
+    {% endif %}
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+{% extends 'app/base.html' %}
+
+{% block title %} Search Results {% endblock %}
+
+{% block body %}
+    <div class="product-container">
+        {% if result %}
+            {% for product in result %}
+                <div class="product-item">
+                    <div class="img">
+                        <a href="{% url 'product-details' product.id %}">
+                            <img src="{{ product.product_image.url }}" alt="{{ product.title }}">
+                        </a>
+                    </div>
+                    <h3>{{ product.title }}</h3>
+                    <p>Brand: {{ product.brand }}</p>
+                    <p>Selling Price: {{ product.selling_price }}</p>
+                    <p>Discount Price: {{ product.discount_price }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div style="min-height: 500px; color: red;">
+                <h1>Product Not Found</h1>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

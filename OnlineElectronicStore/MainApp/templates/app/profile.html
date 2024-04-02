@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="profile-body" style="background-image: url('{% static 'image/login-bg.jpg' %}'); background-size: cover; background-position: center;">
+{% if form %}
+<form action="" method="post" novalidate class="Address-Form">
+    <h1>{{request.user|upper}} YOU ARE WELCOME </h1>
+
+               {% csrf_token %}
+               {% if form %}
+               {% for f in form %}
+               <div class="form-div">
+                   {{f.label_tag}}{{f}}<small class="Danger">{{f.errors|striptags}}</small>
+               </div>
+               {% endfor %}
+               {% endif %}
+               <input type="submit" value="Update Profile" class="submit">
+    <br/>
+    <br/>
+    <button name='Back' class="back">
+    <a href="{% url 'index' %}">Back To Home</a>
+    </button>
+    <button name='Change' class="change">
+        <p><a href="{% url 'password-change' %}">Change Password</a></p>
+    </button>
+
+     {% if messages %}
+           {% for message in messages %}
+           <div class="message">{{message}}</div>
+           {% endfor %}
+           {% endif %}
+
+</form>
+{% endif %}
+
+                 </div>
+<div>
+   {% if add %}
+
+    {% for i in add %}
+      <div class="Address-Form">
+    <label> Name : {{i.name}}</label>
+    <label> Location : {{i.location}}</label>
+    <label> City : {{i.city}}</label>
+    <label> State : {{i.state}}</label>
+    <label> Zipcode : {{i.zipcode}}</label>
+    <button name='Remove' class="remove">
+    <a href="{% url 'remove-address' i.id  %}">Remove</a>
+    </button>
+
+        </div>
+    {% endfor %}
+
+    {% else %}
+    <h4> No Address Found.. </h4>
+    {% endif %}
+
+
+</div>
+</body>
+</html>
