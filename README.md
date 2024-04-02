@@ -1,5 +1,5 @@
 # OnlineElectronicStore
-Django~=4.2.11
+
 # Introduction
 This is a Django-based online electronic store project. It allows users to browse electronic products, add them to their cart, and make purchases.
 
