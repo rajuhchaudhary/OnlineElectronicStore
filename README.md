@@ -12,7 +12,7 @@ This is a Django-based online electronic store project. It allows users to brows
 # Installation
 1. Clone the repository:
     ```
-    git clone https://github.com/your_username/online-electronic-store.git
+    git clone https://github.com/rajuhchaudhary/online-electronic-store.git
     ```
 2. Navigate to the project directory:
     ```
