@@ -58,7 +58,6 @@ class Index(Home):
             'Smart_Watch': self.Smart_Watch,
             'Computer': self.Computer
         }
-        # Add any additional context specific to the index view here
         return render(request, "app/index.html", context)
 def About(request):
     return render(request,'app/about-us.html')
